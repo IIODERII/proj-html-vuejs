@@ -6,6 +6,7 @@
       <JumboComponent />
       <NewMovie />
       <MoviePlaylist />
+      <CountDown />
     </main>
   </div>
 </template>
@@ -15,6 +16,7 @@ import HeaderComponent from "../HeaderComponent.vue";
 import JumboComponent from "./JumboComponent.vue";
 import NewMovie from "./NewMovie.vue";
 import MoviePlaylist from "./MoviePlaylist.vue";
+import CountDown from "./CountDown.vue";
 export default {
   name: "MainPage",
   components: {
@@ -22,6 +24,7 @@ export default {
     JumboComponent,
     NewMovie,
     MoviePlaylist,
+    CountDown,
   },
 };
 </script>
