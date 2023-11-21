@@ -9,7 +9,7 @@
       <div class="generals text-start px-1">
         <div>
           <h3>{{ movie.title }}</h3>
-          <h4>Category: {{ movie.categoty }}</h4>
+          <h4 class="pb-3">Category: {{ movie.categoty }}</h4>
           <p>Release: {{ movie.release }}</p>
           <p>
             Genres:
@@ -46,11 +46,10 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/styles/partials/variables" as *;
 .mycard {
-  width: 370px;
-  height: 600px;
   transition: all 0.5s ease;
   overflow: hidden;
   position: relative;
+  height: 100%;
 
   img {
     width: 100%;
@@ -96,7 +95,7 @@ export default {
 
       > div {
         position: relative;
-        top: 91.1%;
+        top: 89%;
         transition: all 0.5s ease;
         h3 {
           font-size: 20px;
