@@ -1,16 +1,20 @@
 <template>
-  <div class="text-primary">Ciao</div>
-  <i class="fa-solid fa-house"></i>
+  <MainPage />
 </template>
 
 <script>
 import { store } from "./store";
 import axios from "axios";
+import MainPage from "./components/mainPage/MainPage.vue";
+
 export default {
   data() {
     return {
       store,
     };
+  },
+  components: {
+    MainPage,
   },
   methods: {
     callMovies() {
