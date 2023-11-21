@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="py-5">
     <div
       class="my-5 container d-flex justify-content-between align-items-center"
     >
@@ -17,19 +17,23 @@
       </div>
     </div>
     <div
-      class="d-flex container justify-content-between mx-auto align-items-center"
+      class="row g-0 flex-nowrap container-xl overflow-hidden justify-content-between mx-auto align-items-center"
+      :ref="'slider'"
     >
       <MovieCard
         :movie="store.movies[prevIndex()]"
-        class="cards p-0 rounded-5 prev"
+        class="cards p-0 rounded-5 prev m-0"
       />
       <MovieCard
-        :movie="store.movies[currentIndex]"
-        class="cards attivo p-0 rounded-5"
+        v-for="(movie, index) in store.movies"
+        :key="index"
+        :movie="movie"
+        class="cards p-0 rounded-5 m-0"
+        :class="{ attivo: index === currentIndex }"
       />
       <MovieCard
         :movie="store.movies[nextIndex()]"
-        class="cards p-0 rounded-5 next"
+        class="cards p-0 rounded-5 prev m-0"
       />
     </div>
   </div>
@@ -65,6 +69,20 @@ export default {
       }
     },
     scrollForward() {
+      const slider = this.$refs.slider;
+
+      if (this.currentIndex !== this.store.movies.length - 1) {
+        slider.scrollBy({
+          left: 440,
+          behavior: "smooth",
+        });
+      } else {
+        slider.scrollBy({
+          left: -9999,
+          behavior: "auto",
+        });
+      }
+
       if (this.currentIndex === this.store.movies.length - 1) {
         this.currentIndex = 0;
       } else {
@@ -72,6 +90,20 @@ export default {
       }
     },
     scrollBack() {
+      const slider = this.$refs.slider;
+
+      if (this.currentIndex !== 0) {
+        slider.scrollBy({
+          left: -440,
+          behavior: "smooth",
+        });
+      } else {
+        slider.scrollBy({
+          left: 9999,
+          behavior: "auto",
+        });
+      }
+
       if (this.currentIndex === 0) {
         this.currentIndex = this.store.movies.length - 1;
       } else {
@@ -102,7 +134,8 @@ i {
 }
 
 .cards {
-  width: 32%;
+  //   width: 440px;
+  width: calc(100% / 3);
   height: 500px;
   transition: all 0.5s ease;
 
@@ -120,7 +153,6 @@ i {
 }
 
 .attivo {
-  width: 500px;
   height: 700px;
   margin: 0 20px;
 

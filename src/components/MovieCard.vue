@@ -96,7 +96,7 @@ export default {
 
       > div {
         position: relative;
-        top: 87%;
+        top: 91.1%;
         transition: all 0.5s ease;
         h3 {
           font-size: 20px;
