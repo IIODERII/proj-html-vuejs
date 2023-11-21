@@ -18,14 +18,14 @@ export default {
   },
   methods: {
     callMovies() {
-      const url = this.store.apiUrl + this.store.endPoint;
-      axios.get(url, { params: this.store.params }).then((res) => {
-        this.store.movies = res.data.results;
-      });
+      // const url = this.store.apiUrl + this.store.endPoint;
+      // axios.get(url, { params: this.store.params }).then((res) => {
+      //   this.store.movies = res.data.results;
+      // });
     },
   },
   created() {
-    this.callMovies();
+    //this.callMovies();
   },
 };
 </script>
