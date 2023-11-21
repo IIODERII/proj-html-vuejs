@@ -73,7 +73,7 @@ export default {
 
       if (this.currentIndex !== this.store.movies.length - 1) {
         slider.scrollBy({
-          left: 440,
+          left: slider.offsetWidth / 3,
           behavior: "smooth",
         });
       } else {
@@ -94,7 +94,7 @@ export default {
 
       if (this.currentIndex !== 0) {
         slider.scrollBy({
-          left: -440,
+          left: -slider.offsetWidth / 3,
           behavior: "smooth",
         });
       } else {

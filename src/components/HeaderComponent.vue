@@ -32,7 +32,7 @@
         class="container p-3 pb-5 d-flex justify-content-between align-items-center"
       >
         <div>
-          <img src="/public/images/cropped-logo.png" alt="logo" />
+          <img src="/images/cropped-logo.png" alt="logo" />
         </div>
 
         <div class="d-flex align-items-center justify-content-end search">
