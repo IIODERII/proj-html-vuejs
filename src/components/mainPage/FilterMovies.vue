@@ -143,7 +143,7 @@ ul {
 
 .hidden {
   transition: all 0.5s ease;
-  transform: translateY(-50%) scale(0) translateX(-50%) skew(90deg);
+  transform: translateY(-50%) scale(0) translateX(-50%);
   position: absolute;
 }
 </style>

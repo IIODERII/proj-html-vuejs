@@ -1,5 +1,14 @@
 <template>
   <div class="mycard">
+    <div class="overlay" v-if="overlay">
+      <i class="fa-regular fa-circle-xmark x" @click="overlay = false"></i>
+      <iframe width="900px" height="560" :src="movie.trailer"> </iframe>
+      <div class="socials">
+        <a v-for="social in store.socials" :href="social.link" class="me-3"
+          ><i :class="social.class"></i
+        ></a>
+      </div>
+    </div>
     <img :src="movie.image" alt="" />
     <div class="content position-absolute">
       <div class="rating">
@@ -25,7 +34,7 @@
         <div class="rounded-start-pill p-2">{{ movie.views }} Views</div>
       </div>
 
-      <div class="play">
+      <div class="play" @click="overlay = true">
         <i class="fa-regular fa-circle-play"></i>
       </div>
 
@@ -35,10 +44,17 @@
 </template>
 
 <script>
+import { store } from "../store";
 export default {
   name: "MovieCard",
   props: {
     movie: Object,
+  },
+  data() {
+    return {
+      overlay: false,
+      store,
+    };
   },
 };
 </script>
@@ -161,6 +177,62 @@ export default {
 
       .green-pill {
         left: 0;
+      }
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .x {
+      font-size: 3.5em;
+      color: $textColor;
+      cursor: pointer;
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      transition: all 0.5s ease;
+
+      &:hover {
+        color: $primaryColor;
+        transform: scale(1.2);
+      }
+    }
+
+    .socials {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      a {
+        text-decoration: none;
+        display: block;
+        width: 3em;
+        height: 3em;
+        border-radius: 50%;
+        background-color: $textColor;
+        color: $backgroundColor;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s ease;
+
+        &:hover {
+          background-color: $primaryColor;
+          color: $textColor;
+        }
       }
     }
   }
