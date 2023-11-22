@@ -39,6 +39,20 @@
       </div>
 
       <div class="green-pill rounded-end-pill">2.30.00</div>
+      <div
+        class="to-cart rounded-end-pill"
+        @click="store.cart.push(movie)"
+        v-if="!store.cart.includes(movie)"
+      >
+        <i class="fa-solid fa-basket-shopping pe-1"></i> Add to Cart
+      </div>
+      <div
+        class="to-cart rounded-end-pill"
+        @click="store.cart.splice(store.cart.indexOf(movie), 1)"
+        v-if="store.cart.includes(movie)"
+      >
+        <i class="fa-solid fa-check pe-1"></i> Already in your Cart
+      </div>
     </div>
   </div>
 </template>
@@ -164,6 +178,23 @@ export default {
       padding: 8px 15px;
     }
 
+    .to-cart {
+      position: absolute;
+      top: 70px;
+      left: -250px;
+      background-color: $primaryColor;
+      color: white;
+      cursor: default;
+      transition: all 0.5s ease;
+      padding: 8px 15px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $backgroundColor;
+        color: $primaryColor;
+      }
+    }
+
     &:hover {
       .generals {
         > div {
@@ -175,7 +206,8 @@ export default {
         bottom: 55%;
       }
 
-      .green-pill {
+      .green-pill,
+      .to-cart {
         left: 0;
       }
     }

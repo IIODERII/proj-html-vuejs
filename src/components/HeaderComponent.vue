@@ -63,7 +63,7 @@
               <ul class="list-unstyled fs-6 py-4 rounded-1">
                 <li
                   v-for="subItem in item.elements"
-                  class="oder-hover-primary px-2"
+                  class="oder-hover-primary px-4"
                 >
                   {{ subItem }}
                 </li>
@@ -75,7 +75,7 @@
                 >{{ item.name }}<i class="fa-solid fa-caret-down"> </i
               ></span>
               <ul class="list-unstyled fs-6 py-4 rounded-1">
-                <li v-for="subItem in item.elements" class="px-2">
+                <li v-for="subItem in item.elements" class="px-4">
                   <span
                     class="oder-hover-primary d-flex justify-content-between align-items-center"
                     >{{ subItem.name }}<i class="fa-solid fa-chevron-right"></i
@@ -84,7 +84,7 @@
                   <ul class="list-unstyled fs-6 py-4 rounded-1">
                     <li
                       v-for="subSubItem in subItem.subElements"
-                      class="px-2 oder-hover-primary"
+                      class="px-4 oder-hover-primary"
                     >
                       <span>{{ subSubItem }}</span>
                     </li>
@@ -107,8 +107,26 @@
             >
               <span>{{ store.cart.length }}</span>
             </div>
-            <div class="list">
-              <div v-if="store.cart.length === 0">No products in the cart</div>
+            <div class="list p-0">
+              <div v-if="store.cart.length === 0" class="p-4">
+                No products in the cart
+              </div>
+              <ul v-else class="list-unstyled m-0">
+                <li v-for="(product, index) in store.cart" class="px-5 w-100">
+                  <div class="row">
+                    <img
+                      :src="product.image"
+                      :alt="product.title"
+                      class="col-4"
+                    />
+                    <span class="col-8 fw-bold fs-6">{{ product.title }}</span>
+                    <i
+                      class="fa-regular fa-trash-can"
+                      @click="store.cart.splice(index, 1)"
+                    ></i>
+                  </div>
+                </li>
+              </ul>
             </div>
           </span>
         </div>
@@ -187,8 +205,9 @@ li {
 
   &:hover {
     > ul {
-      opacity: 1;
       z-index: 1;
+      opacity: 1;
+
       top: 40px;
     }
   }
@@ -196,6 +215,36 @@ li {
 
 .cart {
   position: relative;
+
+  li {
+    padding: 10px 0;
+    border-top: 2px solid $linesColor;
+    border-bottom: 2px solid $linesColor;
+    background-color: $backgroundColor;
+    color: $textColor;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+      background-color: $primaryColor;
+      color: $backgroundColor;
+    }
+
+    i {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      font-size: 1.5em;
+      transition: all 0.3s ease;
+      width: auto;
+
+      &:hover {
+        color: $textColor;
+      }
+    }
+  }
 
   .counter {
     width: 1.5em;
@@ -226,8 +275,8 @@ li {
 
   &:hover {
     > .list {
-      opacity: 1;
       z-index: 1;
+      opacity: 1;
       top: 0px;
     }
   }
