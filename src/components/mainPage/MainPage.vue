@@ -8,6 +8,7 @@
       <MoviePlaylist />
       <CountDown />
       <FilterMovies />
+      <LatestNews />
     </main>
   </div>
 </template>
@@ -19,6 +20,7 @@ import NewMovie from "./NewMovie.vue";
 import MoviePlaylist from "./MoviePlaylist.vue";
 import CountDown from "./CountDown.vue";
 import FilterMovies from "./FilterMovies.vue";
+import LatestNews from "./LatestNews.vue";
 export default {
   name: "MainPage",
   components: {
@@ -28,6 +30,7 @@ export default {
     MoviePlaylist,
     CountDown,
     FilterMovies,
+    LatestNews,
   },
 };
 </script>
