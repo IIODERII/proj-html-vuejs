@@ -16,17 +16,17 @@ export default {
   components: {
     MainPage,
   },
-  methods: {
-    callMovies() {
-      // const url = this.store.apiUrl + this.store.endPoint;
-      // axios.get(url, { params: this.store.params }).then((res) => {
-      //   this.store.movies = res.data.results;
-      // });
-    },
-  },
-  created() {
-    //this.callMovies();
-  },
+  // methods: {
+  //   callMovies() {
+  //     const url = this.store.apiUrl + this.store.endPoint;
+  //     axios.get(url, { params: this.store.params }).then((res) => {
+  //       this.store.movies = res.data.results;
+  //     });
+  //   },
+  // },
+  // created() {
+  //   this.callMovies();
+  // },
 };
 </script>
 

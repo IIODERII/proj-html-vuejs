@@ -11,6 +11,8 @@
       <LatestNews />
       <FormComponent />
     </main>
+
+    <FooterComponent />
   </div>
 </template>
 
@@ -23,6 +25,7 @@ import CountDown from "./CountDown.vue";
 import FilterMovies from "./FilterMovies.vue";
 import LatestNews from "./LatestNews.vue";
 import FormComponent from "./FormComponent.vue";
+import FooterComponent from "../FooterComponent.vue";
 export default {
   name: "MainPage",
   components: {
@@ -34,6 +37,7 @@ export default {
     FilterMovies,
     LatestNews,
     FormComponent,
+    FooterComponent,
   },
 };
 </script>
