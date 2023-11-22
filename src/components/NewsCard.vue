@@ -4,7 +4,7 @@
       <span class="rounded-start-pill date">{{ news.date }}</span>
       <div>
         <h3 class="p-4">{{ news.title }}</h3>
-        <div class="d-flex justify-content-between pe-3">
+        <div class="d-flex justify-content-between align-items-center pe-3">
           <span class="rounded-end-pill">Details</span>
           <div>
             <span>{{ news.author }}</span>
@@ -42,9 +42,10 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/styles/partials/variables" as *;
 .news-card {
-  height: 500px;
-  width: 500px;
+  height: 100%;
+  width: 100%;
   position: relative;
+  background-size: cover;
 
   .details {
     position: absolute;
@@ -127,7 +128,7 @@ export default {
         }
         &:hover {
           .socials {
-            right: 0;
+            right: -24px;
           }
         }
       }
