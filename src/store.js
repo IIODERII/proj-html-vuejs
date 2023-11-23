@@ -17,6 +17,7 @@ export const store = reactive({
       genres: ["Drama", "Action Releas"],
       image: "/images/2.jpg",
       rating: 4,
+      id: 1,
     },
     {
       title: "New Movie Quisque in Strack",
@@ -27,6 +28,7 @@ export const store = reactive({
       genres: ["Drama", "Action Releas"],
       image: "/images/5.jpg",
       rating: 0,
+      id: 2,
     },
     {
       title: "Movie Action Garila English",
@@ -37,6 +39,7 @@ export const store = reactive({
       genres: ["Drama", "Action Releas"],
       image: "/images/3.jpg",
       rating: 1,
+      id: 3,
     },
     {
       title: "Action Garila English Movie",
@@ -47,6 +50,7 @@ export const store = reactive({
       genres: ["Drama", "Action Releas"],
       image: "/images/3-1.jpg",
       rating: 0,
+      id: 4,
     },
     {
       title: "Donec English Action movie",
@@ -57,6 +61,7 @@ export const store = reactive({
       genres: ["Drama", "Action Releas"],
       image: "/images/2-1 (1).jpg",
       rating: 10,
+      id: 5,
     },
     {
       title: "English Action movie in Strack",
@@ -67,6 +72,7 @@ export const store = reactive({
       genres: ["Drama", "Action Releas"],
       image: "/images/4-1.jpg",
       rating: 0,
+      id: 6,
     },
     {
       title: "Movie Auctor Quisque in Strack",
@@ -77,6 +83,7 @@ export const store = reactive({
       genres: ["Drama", "Action Releas"],
       image: "/images/6.jpg",
       rating: 0,
+      id: 7,
     },
     {
       title: "Auctor  Movie Quisque in Strack",
@@ -87,6 +94,7 @@ export const store = reactive({
       genres: ["Drama", "Action Releas"],
       image: "/images/5.jpg",
       rating: 1,
+      id: 8,
     },
     {
       title: "Donec Movie Quisque in Strack",
@@ -97,6 +105,7 @@ export const store = reactive({
       genres: ["Drama", "Action Releas"],
       image: "/images/1-2.jpg",
       rating: 1,
+      id: 9,
     },
   ],
   posts: [
@@ -111,6 +120,7 @@ export const store = reactive({
       date: "April 14, 2020",
       author: "Moviestar",
       comments: [],
+      id: 1,
     },
     {
       title: "Consequat Nam Lectus Nibh Aucibus It Has Turpis",
@@ -123,6 +133,7 @@ export const store = reactive({
       date: "April 14, 2020",
       author: "Moviestar",
       comments: [],
+      id: 2,
     },
     {
       title: "Nam Lectus Nibh Consequat Aucibus Turpis It Has Survived.",
@@ -135,6 +146,7 @@ export const store = reactive({
       date: "April 14, 2020",
       author: "Moviestar",
       comments: [],
+      id: 3,
     },
     {
       title: "Bring Me The Head Of Alfredo Garcia Best Movie In",
@@ -147,6 +159,7 @@ export const store = reactive({
       date: "April 14, 2020",
       author: "Moviestar",
       comments: [],
+      id: 4,
     },
     {
       title: "Pump Action Interaction English Action Movie (2020)",
@@ -159,6 +172,7 @@ export const store = reactive({
       date: "April 14, 2020",
       author: "Moviestar",
       comments: [],
+      id: 5,
     },
   ],
   moviesCategories: [

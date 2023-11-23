@@ -7,14 +7,14 @@
 
     <div class="py-5 row justify-content-around">
       <div class="col-6 big-news">
-        <NewsCard :news="store.posts[activeIndex]" />
+        <NewsCard :news="store.posts[idToIndex()]" />
       </div>
 
       <div class="col-6 row">
         <NewsCard
           v-for="(post, index) in postNoActive()"
           :news="post"
-          @click="activeIndex = index"
+          @click="activeId = post.id"
           class="col-6 small-news"
         />
       </div>
@@ -31,14 +31,15 @@ export default {
   data() {
     return {
       store,
-      activeIndex: 0,
+      activeId: 1,
     };
   },
   methods: {
     postNoActive() {
-      return this.store.posts.filter(
-        (post, index) => index !== this.activeIndex
-      );
+      return this.store.posts.filter((post) => post.id !== this.activeId);
+    },
+    idToIndex() {
+      return this.store.posts.findIndex((post) => post.id === this.activeId);
     },
   },
 };
