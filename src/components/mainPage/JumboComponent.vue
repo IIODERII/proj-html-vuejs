@@ -2,6 +2,9 @@
   <div
     class="jumbo mt-4 d-flex justify-content-center align-items-center"
     :style="{ backgroundImage: `url(${bgImage})` }"
+    @mousedown="handleMouseDown"
+    @mousemove="handleMouseMove"
+    @mouseup="handleMouseUp"
   >
     <div class="left" @click="changeImage">
       <i class="fa-regular fa-circle-left"></i>
@@ -45,6 +48,11 @@ export default {
     return {
       pageOne: true,
       bgImage: "/images/slider.jpg",
+      drag: {
+        isDragging: false,
+        startX: 0,
+        offset: 0,
+      },
     };
   },
   methods: {
@@ -56,6 +64,31 @@ export default {
         this.bgImage = "/images/slider.jpg";
         this.pageOne = true;
       }
+    },
+    handleMouseDown(event) {
+      this.drag.isDragging = true;
+      this.drag.startX = event.clientX;
+      this.drag.offset = 0;
+    },
+
+    handleMouseMove(event) {
+      if (!this.drag.isDragging) return;
+
+      this.drag.offset = event.clientX - this.drag.startX;
+    },
+
+    handleMouseUp() {
+      if (!this.drag.isDragging) return;
+
+      this.drag.isDragging = false;
+
+      if (Math.abs(this.drag.offset) > 50) {
+        // Spostamento sufficiente per cambiare immagine
+        this.changeImage();
+      }
+
+      // Resettare l'offset dopo il trascinamento
+      this.drag.offset = 0;
     },
   },
   mounted() {
@@ -74,6 +107,7 @@ export default {
   background-size: cover;
   transition: all 1s ease;
   position: relative;
+  cursor: grab;
 
   .oder-text-primary {
     color: $primaryColor;

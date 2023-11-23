@@ -257,4 +257,9 @@ export const store = reactive({
   headerNavSingle: ["Blog", "Contact Us"],
 
   cart: [],
+  searchedOptions: "",
+  selectedCategory: "All Movie Category",
+  searchedMovies: [],
+
+  page: "home",
 });

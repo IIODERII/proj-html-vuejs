@@ -2,7 +2,7 @@
   <header>
     <div class="oder-line-bottom">
       <div
-        class="container d-flex align-items-center justify-content-between p-3"
+        class="container d-flex flex-wrap align-items-center justify-content-between p-3"
       >
         <div class="d-flex align-items-center">
           <span
@@ -29,33 +29,50 @@
 
     <div class="oder-line-bottom">
       <div
-        class="container p-3 pb-5 d-flex justify-content-between align-items-center"
+        class="container p-3 pb-5 d-flex flex-wrap justify-content-between align-items-center"
       >
-        <div>
+        <div @click="store.page = 'home'" class="logo" a>
           <img src="/images/cropped-logo.png" alt="logo" />
         </div>
 
         <div class="d-flex align-items-center justify-content-end search">
-          <select name="" id="" class="oder-bg" placeholder="All Movie">
+          <select
+            name=""
+            id=""
+            class="oder-bg"
+            placeholder="All Movie"
+            v-model="store.selectedCategory"
+            @change="search"
+          >
             <option
               v-for="category in store.moviesCategories"
-              value=""
+              :value="category"
               class="bg-white text-black"
             >
               {{ category }}
             </option>
           </select>
 
-          <input type="text" class="oder-bg w-50" placeholder="Search..." />
-          <button class="btn btn-dark rounded-0 oder-bg">Search</button>
+          <input
+            type="text"
+            class="oder-bg w-50"
+            placeholder="Search..."
+            v-model="store.searchedOptions"
+            @keyup.enter="search"
+          />
+          <button class="btn btn-dark rounded-0 oder-bg" @click="search">
+            Search
+          </button>
         </div>
       </div>
     </div>
 
     <div>
-      <div class="container d-flex align-items-center justify-content-between">
+      <div
+        class="container d-flex flex-wrap align-items-center justify-content-between"
+      >
         <nav>
-          <ul class="d-flex list-unstyled p-3 m-0 fw-bold fs-5">
+          <ul class="d-flex flex-wrap list-unstyled p-3 m-0 fw-bold fs-5">
             <li v-for="item in store.headerNav" class="pe-4">
               <span class="oder-hover-primary"
                 >{{ item.name }} <i class="fa-solid fa-caret-down"></i
@@ -144,11 +161,34 @@ export default {
       store,
     };
   },
+  methods: {
+    search() {
+      if (this.store.selectedCategory === "All Movie Category") {
+        this.store.searchedMovies = this.store.movies;
+      } else {
+        this.store.searchedMovies = this.store.movies.filter(
+          (movie) => movie.categoty === this.store.selectedCategory
+        );
+      }
+
+      this.store.searchedMovies = this.store.searchedMovies.filter((movie) =>
+        movie.title
+          .toLowerCase()
+          .includes(this.store.searchedOptions.toLowerCase())
+      );
+
+      this.store.page = "search";
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 @use "../assets/styles/partials/variables" as *;
+
+.logo {
+  cursor: pointer;
+}
 
 .oder-text-primary {
   color: $primaryColor;

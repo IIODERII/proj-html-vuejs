@@ -1,11 +1,13 @@
 <template>
-  <MainPage />
+  <MainPage v-if="store.page === 'home'" />
+  <SearchPage v-else-if="store.page === 'search'" />
 </template>
 
 <script>
 import { store } from "./store";
 import axios from "axios";
 import MainPage from "./components/mainPage/MainPage.vue";
+import SearchPage from "./components/searchPage/SearchPage.vue";
 
 export default {
   data() {
@@ -15,6 +17,7 @@ export default {
   },
   components: {
     MainPage,
+    SearchPage,
   },
   // methods: {
   //   callMovies() {
